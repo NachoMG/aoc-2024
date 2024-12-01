@@ -1,19 +1,8 @@
 use std::collections::HashMap;
 
-use helpers::read_lines;
-use thiserror::Error;
+use helpers::{read_lines, AocError};
 
-#[derive(Error, Debug)]
-enum Day1Error {
-    #[error("Io Error: {0}")]
-    IoError(#[from] std::io::Error),
-    #[error("Item not found when parsing line: {0}")]
-    ItemNotFound(String),
-    #[error("{0}")]
-    ParseIntError(#[from] std::num::ParseIntError),
-}
-
-fn main() -> Result<(), Day1Error> {
+fn main() -> Result<(), AocError> {
     let path = "day_1_2/data/input.txt";
     let lines_buffer = read_lines(path)?;
 
@@ -26,11 +15,11 @@ fn main() -> Result<(), Day1Error> {
 
         let left: i32 = items
             .next()
-            .ok_or(Day1Error::ItemNotFound(line.to_string()))?
+            .ok_or(AocError::ItemNotFound(line.to_string()))?
             .parse()?;
         let right: i32 = items
             .next()
-            .ok_or(Day1Error::ItemNotFound(line.to_string()))?
+            .ok_or(AocError::ItemNotFound(line.to_string()))?
             .parse()?;
 
         left_list.push(left);
