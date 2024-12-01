@@ -1,2 +1,5 @@
 [workspace]
 members = ["day_*", "helpers"]
+
+[workspace.dependencies]
+thiserror = "2.0.3"
