@@ -3,4 +3,5 @@ members = ["day_*", "helpers"]
 resolver = "2"
 
 [workspace.dependencies]
+regex = "1.11.1"
 thiserror = "2.0.3"

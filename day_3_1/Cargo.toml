@@ -1,8 +1,9 @@
 [package]
-name = "helpers"
+name = "day_3_1"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
 regex.workspace = true
-thiserror.workspace = true
+
+helpers = { path = "../helpers" }

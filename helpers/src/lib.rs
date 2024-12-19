@@ -14,6 +14,8 @@ pub enum AocError {
     ItemNotFound(String),
     #[error("{0}")]
     ParseIntError(#[from] std::num::ParseIntError),
+    #[error("Regex error: {0}")]
+    RegexError(#[from] regex::Error),
 }
 
 pub fn read_lines<P>(path: P) -> io::Result<io::Lines<io::BufReader<File>>>
